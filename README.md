@@ -2,7 +2,7 @@
 This repository contains a clothing store database project. This project was put together by a beginner in data science to practice basic SQL concepts. 
 With this project, it is possible to create a simple database schema for a clothing store and practice basic **SQL** queries using **MySQL**.
 
-# Project Overview
+### Project Overview
 This project covers the following main aspects:
 
 **Database Setup**: A script to set up a MySQL database named "Clothing_Store," which will serve as the foundation for a practice.
