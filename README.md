@@ -12,3 +12,5 @@ This project covers the following main aspects:
 **Data Insertion**: Sample data has been prepared to populate the tables and make the practice more engaging.
 
 **Query exercises**: The project contains a set of SQL queries useful in data analysis. These queries cover basic querying techniques, including selecting, filtering, sorting, and joining data.
+
+**MySQL Workbench and Jupyter Notebook connection**: A **Python** script in Jupyter Notebook with a MySQL Workbench connector and code for writing SQL queries has been added to the repository.
