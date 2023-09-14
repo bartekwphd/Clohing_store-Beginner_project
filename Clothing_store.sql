@@ -41,11 +41,11 @@ Product_Id INT PRIMARY KEY,
 Supplier_Name VARCHAR(255) NOT NULL,
 Product_Name VARCHAR(255) NOT NULL,
 Product_Description TEXT,
-Net_Purchase_Price DECIMAL(10, 2) NOT NULL,
-Gross_Purchase_Price DECIMAL(10, 2) NOT NULL,
-Net_Selling_Price DECIMAL(10, 2) NOT NULL,
-Gross_Selling_Price DECIMAL(10, 2) NOT NULL,
-Sales_VAT_Percentage DECIMAL(5, 2) NOT NULL
+Net_Purchase_Price FLOAT NOT NULL,
+Gross_Purchase_Price FLOAT NOT NULL,
+Net_Selling_Price FLOAT NOT NULL,
+Gross_Selling_Price FLOAT NOT NULL,
+Sales_VAT_Percentage FLOAT NOT NULL
 );
 
 -- 4. Create a "Orders" table with the following columns:
@@ -97,7 +97,9 @@ Contract_Signing_Date_With_Producer
 (2, 'Adios', 'Niebieska 17, Krakow', 3987654321, '2010-03-11'),
 (3, '4win', 'Czarna 33, Wroclaw', 1357908642, '2009-10-30'),
 (4, 'OneTwo', 'Czerwona 14, Katowice', 2468097531, '2013-12-01'
-);  
+);
+
+SELECT * FROM Supplier;  
 
 INSERT INTO Product(
 Product_Id,
@@ -110,27 +112,29 @@ Net_Selling_Price,
 Gross_Selling_Price,
 Sales_VAT_Percentage
 ) VALUES(
-001, 'BeFirst', 'shoes', 'green', 200, 246, 350, 410, 0.17),
-(002, 'Adios', 'shoes', 'black', 150, 188, 310, 380, 0.23),
-(003, 'OneTwo', 't-shirt', 'green', 70, 97, 120, 145, 0.21),
-(004, '4win', 'cap', 'pink', 50, 65, 100, 125, 0.25),
-(005, 'Adios', 'tracksuits', 'black', 125, 170, 190, 233, 0.23),
-(006, 'BeFirst', 'cap', 'grey', 92, 114, 135, 171, 027),
-(007, 'BeFirst', 't-shirt', 'red', 133, 199, 235, 280, 0.19),
-(008, 'OneTwo', 'shoes', 'white', 300, 350, 400, 460, 0.15),
-(009, 'Adios', 'cap', 'green', 55, 69, 99, 140, 0.41),
-(010, '4win', 'shoes', 'grey', 180, 231, 285, 322, 0.13),
-(011, '4win', 'tracksuits', 'blue', 100, 130, 177, 200, 0.13),
-(012, 'OneTwo', 'cap', 'yellow', 38, 63, 85, 97, 0.14),
-(013, 'OneTwo', 'tracksuits', 'orange', 78, 111, 141, 177, 0.26),
-(014, 'BeFirst', 'jacket', 'black', 220, 270, 340, 399, 0.17), 
-(015, 'Adios', 't-shirt', 'green', 99, 129, 159, 199, 0.25),
-(016, 'OneTwo', 'jacket', 'white', 100, 133, 180, 211, 0.17),
-(017, 'Adios', 'jacket', 'blue', 210, 267, 300, 346, 0.15),
-(018, '4win', 't-shirt', 'yellow', 95, 115, 150, 195, 0.30),
-(019, 'BeFirst', 'tracksuits', 'purple', 140, 172, 218, 279, 0.28),
-(020, '4win', 'jacket', 'white', 370, 417, 510, 599, 0.17
+1001, 'BeFirst', 'shoes', 'green', 200, 246, 350, 410, 0.17),
+(1002, 'Adios', 'shoes', 'black', 150, 188, 310, 380, 0.23),
+(1003, 'OneTwo', 't-shirt', 'green', 70, 97, 120, 145, 0.21),
+(1004, '4win', 'cap', 'pink', 50, 65, 100, 125, 0.25),
+(1005, 'Adios', 'tracksuits', 'black', 125, 170, 190, 233, 0.23),
+(1006, 'BeFirst', 'cap', 'grey', 92, 114, 135, 171, 027),
+(1007, 'BeFirst', 't-shirt', 'red', 133, 199, 235, 280, 0.19),
+(1008, 'OneTwo', 'shoes', 'white', 300, 350, 400, 460, 0.15),
+(1009, 'Adios', 'cap', 'green', 55, 69, 99, 140, 0.41),
+(1010, '4win', 'shoes', 'grey', 180, 231, 285, 322, 0.13),
+(1011, '4win', 'tracksuits', 'blue', 100, 130, 177, 200, 0.13),
+(1012, 'OneTwo', 'cap', 'yellow', 38, 63, 85, 97, 0.14),
+(1013, 'OneTwo', 'tracksuits', 'orange', 78, 111, 141, 177, 0.26),
+(1014, 'BeFirst', 'jacket', 'black', 220, 270, 340, 399, 0.17), 
+(1015, 'Adios', 't-shirt', 'green', 99, 129, 159, 199, 0.25),
+(1016, 'OneTwo', 'jacket', 'white', 100, 133, 180, 211, 0.17),
+(1017, 'Adios', 'jacket', 'blue', 210, 267, 300, 346, 0.15),
+(1018, '4win', 't-shirt', 'yellow', 95, 115, 150, 195, 0.30),
+(1019, 'BeFirst', 'tracksuits', 'purple', 140, 172, 218, 279, 0.28),
+(1020, '4win', 'jacket', 'white', 370, 417, 510, 599, 0.17
 );
+
+SELECT * FROM Product;
 
 INSERT INTO Orders(
 Order_Id,
@@ -138,17 +142,19 @@ Customer_Id,
 Product_Id,
 Order_Date
 ) VALUES(
-1, 101, 020, '2018-12-08'),
-(2, 102, 015, '2017-10-03'),
-(3, 103, 001, '2015-07-13'),
-(4, 104, 019, '2021-05-08'),
-(5, 105, 003, '2021-05-08'),
-(6, 106, 015, '2019-04-22'),
-(7, 107, 010, '2016-05-29'),
-(8, 108, 015, '2021-01-19'),
-(9, 109, 008, '2020-09-04'),
-(10, 110, 017, '2019-02-23'
+1, 101, 1020, '2018-12-08'),
+(2, 102, 1015, '2017-10-03'),
+(3, 103, 1001, '2015-07-13'),
+(4, 104, 1019, '2021-05-08'),
+(5, 105, 1003, '2021-05-08'),
+(6, 106, 1015, '2019-04-22'),
+(7, 107, 1010, '2016-05-29'),
+(8, 108, 1015, '2021-01-19'),
+(9, 109, 1008, '2020-09-04'),
+(10, 110, 1017, '2019-02-23'
 );
+
+SELECT * FROM Orders;
 
 INSERT INTO Customer(
 Customer_Id,
@@ -168,6 +174,8 @@ Address
 (109, 9, 'Andrzej', 'Wolski', 'Jasminowa 99, Bialystok'),
 (110, 10, 'Maria', 'Bimber', 'Brzoskwiniowa 44, Szczecin'
 );
+
+SELECT * FROM Customer;
 
 -- 7. Link the columns together so that the tables communicate with each other
 -- Product - Supplier
@@ -255,7 +263,7 @@ ON Product.Product_Id = Orders.Product_Id;
 
 SELECT Orders.Order_Date, Orders.Order_Id, Product.Product_Name
 FROM Orders, Product
-WHERE Orders.Order_Id = Product.Product_Id
+WHERE Orders.Product_Id = Product.Product_Id
 ORDER BY Orders.Order_Date;
 
 -- 16. Check if you have completed all data in the products table - display items for which data is missing
