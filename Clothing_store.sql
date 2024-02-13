@@ -17,8 +17,8 @@ USE Clothing_Store;
 
 CREATE TABLE Supplier(
 Supplier_Id INT PRIMARY KEY,
-Supplier_Name VARCHAR(255) UNIQUE,
-Supplier_Address VARCHAR(255),
+Supplier_Name VARCHAR(20) UNIQUE,
+Supplier_Address VARCHAR(30),
 Supplier_NIP BIGINT,
 Contract_Signing_Date_With_Producer DATE
 );
@@ -38,9 +38,9 @@ Contract_Signing_Date_With_Producer DATE
 
 CREATE TABLE Product(
 Product_Id INT PRIMARY KEY,
-Supplier_Name VARCHAR(255) NOT NULL,
-Product_Name VARCHAR(255) NOT NULL,
-Product_Description TEXT,
+Supplier_Name VARCHAR(20) NOT NULL,
+Product_Name VARCHAR(20) NOT NULL,
+Product_Description VARCHAR(10),
 Net_Purchase_Price FLOAT NOT NULL,
 Gross_Purchase_Price FLOAT NOT NULL,
 Net_Selling_Price FLOAT NOT NULL,
@@ -75,9 +75,9 @@ Order_Date DATE
 CREATE TABLE Customer(
 Customer_Id INT PRIMARY KEY,
 Order_Id INT,
-First_Name VARCHAR(50) NOT NULL,
-Last_Name VARCHAR(50) NOT NULL,
-Address VARCHAR(255)
+First_Name VARCHAR(20) NOT NULL,
+Last_Name VARCHAR(20) NOT NULL,
+Address VARCHAR(30)
 );
 
 -- 6. Complete each table with data according to:
